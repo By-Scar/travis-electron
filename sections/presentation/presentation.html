@@ -1,0 +1,29 @@
+<template class="task-template">
+    <section id="windows-section" class="section js-section u-category-windows">
+      <header class="section-header">
+        <link rel="stylesheet" href="sections/presentation/presentation.css">
+        <div class="section-wrapper">
+          <h1>
+            <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+            Le projet Scriglov
+          </h1>
+          <!--<h3>The <code>BrowserWindow</code> module in Electron allows you to create a new browser window or manage an existing one.</h3>-->
+  
+          <!--<p>Each browser window is a separate process, known as the renderer process. This process, like the main process that controls the life cycle of the app, has full access to the Node.js APIs.
+  
+          <p>Open the <a href="http://electron.atom.io/docs/api/browser-window">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>-->
+          <p class="description-project">Notre projet consiste à créer un système de rééducation afin d'aider les personnes atteintes de problèmes psychomoteurs. Ce système est composé d'un gant couvert de capteur et d'un logiciel permettant de corriger l'écriture de l'utilisateur lorsqu'elle n'est plus correcte. Le logiciel comportera des exercices ludiques et un système de suivi des patients. Il y aura une application bureau et une application mobile lorsque vous serez en déplacement.
+          <br />Les professionnels seront capables de l'utiliser lors de leurs séances avec les enfants afin de simplifier leur travail. Il permettra également d'intégrer un logiciel de surveillance à distance pour s'informer du bon déroulement des exercices du patient, et ainsi le contacter en cas d'améliorations ou d'éventuelles régressions de ce dernier.</p>
+          <p>Pour plus d'informations : <a href="https://www.scriglov.fr">www.scriglov.fr</a>></a></p>
+        </div>
+      </header>  
+      <script type="text/javascript">
+        require('./renderer-process/windows/create-window')
+        require('./renderer-process/windows/manage-window')
+        require('./renderer-process/windows/using-window-events')
+        require('./renderer-process/windows/frameless-window')
+      </script>
+  
+    </section>
+  </template>
+  
