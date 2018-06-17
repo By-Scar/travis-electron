@@ -186,11 +186,11 @@ describe('application loading', function () {
     })
   })
 
-  describe('electron.remote.getGlobal', function () {
+  /*describe('electron.remote.getGlobal', function () {
     it('returns the requested global from the main process', function () {
       return app.electron.remote.getGlobal('mainProcessGlobal').should.eventually.equal('foo')
     })
-  })
+  })*/
 
   describe('browserWindow.capturePage', function () {
     it('returns a Buffer screenshot of the given rectangle', function () {
