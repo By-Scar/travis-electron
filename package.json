@@ -1,46 +1,63 @@
 {
-  "name": "spectron",
-  "version": "3.8.0",
-  "description": "Easily test your Electron apps using ChromeDriver and WebdriverIO.",
-  "main": "index.js",
-  "types": "./lib/spectron.d.ts",
+  "name": "Scriglov",
+  "productName": "Scriglov",
+  "version": "1.3.0",
+  "description": "Electron interactive API demos",
+  "private": true,
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "test": "mocha && standard",
+    "package": "npm-run-all package:*",
+    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='Developer ID Application: GitHub' --extend-info=assets/mac/info.plist",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
+    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
+    "package:sign-exe": "signcode './out/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
+    "package:installer": "node ./script/installer.js",
+    "package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
+    "package:mas": "./script/mas.sh",
+    "windows-store": "node ./script/windows-store.js",
+    "release": "node ./script/release.js",
     "prepack": "check-for-leaks",
-    "prepush": "check-for-leaks",
-    "pretest": "tslint lib/spectron.d.ts && tsc lib/spectron.d.ts",
-    "test": "mocha && standard"
+    "prepush": "check-for-leaks"
   },
-  "engines": {
-    "node": ">=0.12.4"
-  },
-  "repository": "https://github.com/electron/spectron",
+  "repository": "https://github.com/electron/electron-api-demos",
   "keywords": [
-    "electron",
-    "chromedriver",
-    "webdriverio",
-    "selenium"
+    "Electron",
+    "API",
+    "demo"
   ],
-  "author": "Kevin Sawicki",
+  "author": "GitHub",
   "license": "MIT",
-  "dependencies": {
-    "dev-null": "^0.1.1",
-    "electron-chromedriver": "~1.8.0",
-    "request": "^2.87.0",
-    "split": "^1.0.0",
-    "webdriverio": "^4.12.0"
-  },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^3.4.1",
     "chai-as-promised": "^6.0.0",
-    "chai-roughly": "^1.0.0",
-    "check-for-leaks": "^1.0.2",
-    "electron": "~1.8.2-beta.4",
+    "check-for-leaks": "^1.2.0",
+    "devtron": "^1.3.0",
+    "electron": "^2.0.0",
+    "electron-installer-windows": "^1.1.0",
+    "electron-packager": "^8.6.0",
+    "electron-winstaller": "^2.2.0",
     "husky": "^0.14.3",
-    "mocha": "^3.4.1",
-    "standard": "^5.3.1",
-    "temp": "^0.8.3",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.4",
-    "@types/webdriverio": "^4.8.0"
+    "mocha": "^3.5.3",
+    "npm-run-all": "^4.0.2",
+    "request": "^2.70.0",
+    "rimraf": "^2.5.2",
+    "signcode": "^0.5.0",
+    "spectron": "^3.6.5",
+    "standard": "^8.2.0"
+  },
+  "dependencies": {
+    "electron-settings": "^3.0.7",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "glob": "^7.1.0",
+    "highlight.js": "^9.3.0",
+    "wine": "^0.9.8"
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
   }
 }
